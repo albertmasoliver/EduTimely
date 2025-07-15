@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+    <solutionClass>org.acme.timetable.Timetable</solutionClass>
+    <entityClass>org.acme.timetable.Lesson</entityClass>
+    <scoreDirectorFactory>
+        <constraintProviderClass>org.acme.timetable.solver.TimetableConstraintProvider</constraintProviderClass>
+    </scoreDirectorFactory>
+    <termination>
+        <secondsSpentLimit>5</secondsSpentLimit>
+    </termination>
+</solver> 

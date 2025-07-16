@@ -11,12 +11,15 @@ import org.optaplanner.core.api.solver.SolverManager;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
+// REST resource that exposes the timetable solving endpoint.
 @Path("/timetable")
 public class TimetableResource {
 
+    // Injects the SolverManager to solve timetable problems
     @Inject
     SolverManager<Timetable, UUID> solverManager;
 
+    // Solves the given timetable problem and returns the best solution
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

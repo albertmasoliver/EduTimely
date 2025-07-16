@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
+// Test class for the TimetableResource REST endpoint.
 @QuarkusTest
 class TimetableResourceTest {
+    // Test the /timetable endpoint with a minimal timetable JSON
     @Test
     void testSolveEndpoint() {
         // Prepare a minimal Timetable JSON
@@ -24,8 +26,8 @@ class TimetableResourceTest {
             {\"name\": \"Room B\"}
           ],
           \"lessonList\": [
-            {\"subject\": \"Math\", \"teacher\": \"A\", \"studentGroup\": \"1\"},
-            {\"subject\": \"English\", \"teacher\": \"B\", \"studentGroup\": \"2\"}
+            {\"id\": 1, \"subject\": \"Math\", \"teacher\": \"A\", \"studentGroup\": \"1\"},
+            {\"id\": 2, \"subject\": \"English\", \"teacher\": \"B\", \"studentGroup\": \"2\"}
           ]
         }
         """;
@@ -40,6 +42,7 @@ class TimetableResourceTest {
             .body("lessonList.room", everyItem(notNullValue()));
     }
 
+    // Test the /timetable endpoint with a more complex weekly schedule
     @Test
     void testWeeklyPhysicsUniversitySchedule() {
         // Example: 5 days, 4 timeslots per day, 3 rooms, 6 subjects, 3 groups, 6 professors
@@ -73,18 +76,18 @@ class TimetableResourceTest {
             {\"name\": \"Aula 101\"}
           ],
           \"lessonList\": [
-            {\"subject\": \"Física I\", \"teacher\": \"Dr. Feynman\", \"studentGroup\": \"Grup 1\"},
-            {\"subject\": \"Física I\", \"teacher\": \"Dr. Feynman\", \"studentGroup\": \"Grup 2\"},
-            {\"subject\": \"Física II\", \"teacher\": \"Dr. Einstein\", \"studentGroup\": \"Grup 1\"},
-            {\"subject\": \"Física II\", \"teacher\": \"Dr. Einstein\", \"studentGroup\": \"Grup 2\"},
-            {\"subject\": \"Matemàtiques\", \"teacher\": \"Dr. Noether\", \"studentGroup\": \"Grup 1\"},
-            {\"subject\": \"Matemàtiques\", \"teacher\": \"Dr. Noether\", \"studentGroup\": \"Grup 2\"},
-            {\"subject\": \"Electromagnetisme\", \"teacher\": \"Dr. Maxwell\", \"studentGroup\": \"Grup 1\"},
-            {\"subject\": \"Electromagnetisme\", \"teacher\": \"Dr. Maxwell\", \"studentGroup\": \"Grup 2\"},
-            {\"subject\": \"Química\", \"teacher\": \"Dr. Curie\", \"studentGroup\": \"Grup 1\"},
-            {\"subject\": \"Química\", \"teacher\": \"Dr. Curie\", \"studentGroup\": \"Grup 2\"},
-            {\"subject\": \"Laboratori\", \"teacher\": \"Dr. Rutherford\", \"studentGroup\": \"Grup 1\"},
-            {\"subject\": \"Laboratori\", \"teacher\": \"Dr. Rutherford\", \"studentGroup\": \"Grup 2\"}
+            {\"id\": 1, \"subject\": \"Física I\", \"teacher\": \"Dr. Feynman\", \"studentGroup\": \"Grup 1\"},
+            {\"id\": 2, \"subject\": \"Física I\", \"teacher\": \"Dr. Feynman\", \"studentGroup\": \"Grup 2\"},
+            {\"id\": 3, \"subject\": \"Física II\", \"teacher\": \"Dr. Einstein\", \"studentGroup\": \"Grup 1\"},
+            {\"id\": 4, \"subject\": \"Física II\", \"teacher\": \"Dr. Einstein\", \"studentGroup\": \"Grup 2\"},
+            {\"id\": 5, \"subject\": \"Matemàtiques\", \"teacher\": \"Dr. Noether\", \"studentGroup\": \"Grup 1\"},
+            {\"id\": 6, \"subject\": \"Matemàtiques\", \"teacher\": \"Dr. Noether\", \"studentGroup\": \"Grup 2\"},
+            {\"id\": 7, \"subject\": \"Electromagnetisme\", \"teacher\": \"Dr. Maxwell\", \"studentGroup\": \"Grup 1\"},
+            {\"id\": 8, \"subject\": \"Electromagnetisme\", \"teacher\": \"Dr. Maxwell\", \"studentGroup\": \"Grup 2\"},
+            {\"id\": 9, \"subject\": \"Química\", \"teacher\": \"Dr. Curie\", \"studentGroup\": \"Grup 1\"},
+            {\"id\": 10, \"subject\": \"Química\", \"teacher\": \"Dr. Curie\", \"studentGroup\": \"Grup 2\"},
+            {\"id\": 11, \"subject\": \"Laboratori\", \"teacher\": \"Dr. Rutherford\", \"studentGroup\": \"Grup 1\"},
+            {\"id\": 12, \"subject\": \"Laboratori\", \"teacher\": \"Dr. Rutherford\", \"studentGroup\": \"Grup 2\"}
           ]
         }
         """;

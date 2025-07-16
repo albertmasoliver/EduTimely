@@ -1,4 +1,7 @@
 /*
+ * This class downloads the Maven Wrapper JAR from a specified URL if it is not present.
+ * It is used to bootstrap Maven builds in projects that use the Maven Wrapper.
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -29,10 +32,13 @@ import java.nio.file.StandardCopyOption;
 
 public final class MavenWrapperDownloader
 {
+    // The version of the Maven Wrapper
     private static final String WRAPPER_VERSION = "3.2.0";
 
+    // Verbose output flag
     private static final boolean VERBOSE = Boolean.parseBoolean( System.getenv( "MVNW_VERBOSE" ) );
 
+    // Main entry point for the downloader
     public static void main( String[] args )
     {
         log( "Apache Maven Wrapper Downloader " + WRAPPER_VERSION );
@@ -63,6 +69,7 @@ public final class MavenWrapperDownloader
         }
     }
 
+    // Downloads the file from the given URL to the specified path
     private static void downloadFileFromURL( URL wrapperUrl, Path wrapperJarPath )
         throws IOException
     {
@@ -87,6 +94,7 @@ public final class MavenWrapperDownloader
         log( " - Downloader complete" );
     }
 
+    // Logs messages if verbose mode is enabled
     private static void log( String msg )
     {
         if ( VERBOSE )
